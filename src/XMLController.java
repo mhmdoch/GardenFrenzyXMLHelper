@@ -61,15 +61,15 @@ public class XMLController {
         System.out.println("baseDmg: " + playerBaseDmg);
         System.out.println("------------------------------");
 
-        Node fuck = doc.getElementsByTagName("toolBox").item(0);
-        NodeList fuckList = fuck.getChildNodes();
-        int n = fuckList.getLength();
-        Node current;
+        Node toolBoxNode = doc.getElementsByTagName("toolList").item(0);
+        NodeList toolBoxNodeList = toolBoxNode.getChildNodes();
+        int n = toolBoxNodeList.getLength();
+        Node toolBoxCurrent;
         for (int i=0; i<n; i++) {
-            current = fuckList.item(i);
-            if(current.getNodeType() == Node.ELEMENT_NODE) {
+            toolBoxCurrent = toolBoxNodeList.item(i);
+            if(toolBoxCurrent.getNodeType() == Node.ELEMENT_NODE) {
                 System.out.println(
-                        current.getNodeName() + ": " + current.getTextContent());
+                        toolBoxCurrent.getNodeName() + ": " + toolBoxCurrent.getTextContent());
             }
         }
 
