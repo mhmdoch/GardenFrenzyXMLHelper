@@ -18,16 +18,36 @@ public class XMLController {
         try {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             doc = builder.parse(file);
-            doc.getDocumentElement().normalize();
         } catch (Exception e) {
 
         }
-        NodeList nodeList = doc.getElementsByTagName("totalScore");
-        Node first = nodeList.item(0);
-        int scoreValue = Integer.valueOf(first.getTextContent());
-        System.out.println(scoreValue);
+
+        // normalize() removes whitespaces etc.
+        doc.getDocumentElement().normalize();
 
 
+        // int mapWidth, int mapHeight
+        int mapWidth = Integer.parseInt(doc.getDocumentElement().getAttribute("mapWidth"));
+        int mapHeight = Integer.parseInt(doc.getDocumentElement().getAttribute("mapHeight"));
+
+
+        // int totalScore
+        NodeList totalScoreNodeList = doc.getElementsByTagName("totalScore");
+        Node totalScoreNode = totalScoreNodeList.item(0);
+        int totalScore = Integer.valueOf(totalScoreNode.getTextContent());
+
+
+
+        System.out.println(totalScore);
+
+
+        // unteres gibt folgendes aus :D
+        // com.sun.org.apache.xerces.internal.dom.DeepNodeListImpl@4b9af9a9
+        NodeList toolObjList = doc.getElementsByTagName("toolObj");
+        Node firstToolObjList = toolObjList.item(0);
+
+
+        System.out.println(firstToolObjList.getTextContent());
     }
 
 }
