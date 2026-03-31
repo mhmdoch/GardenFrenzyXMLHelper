@@ -70,11 +70,11 @@ public class XMLController {
         NodeList toolBoxNodeList = toolBoxNode.getChildNodes();
         int n = toolBoxNodeList.getLength();
         Node toolBoxCurrent;
-        for (int i=0; i<n; i++) {
+        for (int i = 0; i < n; i++) {
             toolBoxCurrent = toolBoxNodeList.item(i);
             // if is protection against whitespaces and linebreaks
             // only if node is real xml, it is true
-            if(toolBoxCurrent.getNodeType() == Node.ELEMENT_NODE) {
+            if (toolBoxCurrent.getNodeType() == Node.ELEMENT_NODE) {
                 Element toolBoxElement = (Element) toolBoxCurrent;
                 String toolName = toolBoxElement.getElementsByTagName("name").item(0).getTextContent();
                 int toolDurability = Integer.parseInt(toolBoxElement.getElementsByTagName("durability").item(0).getTextContent());
@@ -96,9 +96,9 @@ public class XMLController {
         NodeList eggListNodeList = eggListNode.getChildNodes();
         n = eggListNodeList.getLength();
         Node eggListCurrent;
-        for (int i=0; i<n; i++) {
+        for (int i = 0; i < n; i++) {
             eggListCurrent = eggListNodeList.item(i);
-            if(eggListCurrent.getNodeType() == Node.ELEMENT_NODE) {
+            if (eggListCurrent.getNodeType() == Node.ELEMENT_NODE) {
                 Element eggListElement = (Element) eggListCurrent;
                 String eggName = eggListElement.getElementsByTagName("name").item(0).getTextContent();
                 int eggDurability = Integer.parseInt(eggListElement.getElementsByTagName("durability").item(0).getTextContent());
@@ -115,7 +115,6 @@ public class XMLController {
 
 
     }
-
 
 
 }
