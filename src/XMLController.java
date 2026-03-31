@@ -67,9 +67,17 @@ public class XMLController {
         Node toolBoxCurrent;
         for (int i=0; i<n; i++) {
             toolBoxCurrent = toolBoxNodeList.item(i);
+            // if is protection against whitespaces and linebreaks
+            // only if node is real xml, it is true
             if(toolBoxCurrent.getNodeType() == Node.ELEMENT_NODE) {
-                System.out.println(
-                        toolBoxCurrent.getNodeName() + ": " + toolBoxCurrent.getTextContent());
+                // playerNodeList wird durch (Element) in playerElement zu einem Element
+                Element toolBoxElement = (Element) toolBoxCurrent;
+                String toolName = toolBoxElement.getElementsByTagName("name").item(0).getTextContent();
+
+
+                //System.out.println(toolBoxCurrent.getNodeName() + ": " + toolBoxCurrent.getTextContent());
+                System.out.println(toolName);
+
             }
         }
 
