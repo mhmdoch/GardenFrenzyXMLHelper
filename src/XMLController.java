@@ -14,7 +14,8 @@ public class XMLController {
 
     public void readXML(File file) {
 
-        System.out.println("gaga");
+        int scoreValue = 0;
+
 
         try {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -24,13 +25,12 @@ public class XMLController {
 
             NodeList nodeList = doc.getElementsByTagName("totalScore");
             Node first = nodeList.item(0);
-            System.out.println(first.getTextContent() + "aaa");
+            scoreValue = Integer.valueOf(first.getTextContent());
 
         } catch (Exception e) {
 
         }
-
-        System.out.println("gaga after");
+        System.out.println(scoreValue);
     }
 
 }
