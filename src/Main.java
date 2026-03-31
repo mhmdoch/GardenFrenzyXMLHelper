@@ -12,6 +12,5 @@ public class Main {
         controller.readXML(xmlFile);
 
 
-
     }
 }

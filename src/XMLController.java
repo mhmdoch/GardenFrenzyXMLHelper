@@ -90,6 +90,34 @@ public class XMLController {
 
         System.out.println("------------------------------");
 
+        // plantList
+        Node plantListNode = doc.getElementsByTagName("plantList").item(0);
+        NodeList plantListNodeList = plantListNode.getChildNodes();
+        int plantListLength = plantListNodeList.getLength();
+        Node plantListCurrent;
+        for (int i = 0; i < plantListLength; i++) {
+            plantListCurrent = plantListNodeList.item(i);
+            if (plantListCurrent.getNodeType() == Node.ELEMENT_NODE) {
+                Element plantListElement = (Element) plantListCurrent;
+                String plantName = plantListElement.getElementsByTagName("name").item(0).getTextContent();
+                String plantHealth = plantListElement.getElementsByTagName("health").item(0).getTextContent();
+                int plantPosX = Integer.parseInt(plantListElement.getAttribute("posX"));
+                int plantPosY = Integer.parseInt(plantListElement.getAttribute("posY"));
+
+
+                System.out.println("plantName: " + plantName);
+                System.out.println("plantHealth: " + plantHealth);
+                System.out.println("plantPosX: " + plantPosX);
+                System.out.println("plantPosY: " + plantPosY);
+
+                System.out.println("------------------------------");
+
+            }
+
+        }
+
+
+        System.out.println("------------------------------");
 
         // eggList
         Node eggListNode = doc.getElementsByTagName("eggList").item(0);
