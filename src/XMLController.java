@@ -13,13 +13,12 @@ public class XMLController {
 
 
     public void readXML(File file) {
-
         int scoreValue = 0;
-
+        Document doc = null;
 
         try {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            Document doc = builder.parse(file);
+            doc = builder.parse(file);
             doc.getDocumentElement().normalize();
 
 
@@ -31,6 +30,16 @@ public class XMLController {
 
         }
         System.out.println(scoreValue);
+        // das hier liefert [#document: null]
+        // obwohl ich hier die gesamte xml.normalize() erwartet habe
+        // aber das erwartet habe ich auch irgendwie bekommen
+        // nur liegen die daten nicht mehr so xml artig im speicher
+        // sondern als verschachtelte baumstruktur
+        // doc = builder.parse(file) macht das
+
+
+        System.out.println(doc);
+
     }
 
 }
