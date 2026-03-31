@@ -52,6 +52,8 @@ public class XMLController {
         System.out.println("mapHeight: " + mapHeight);
         System.out.println("totalScore: " + totalScore);
         System.out.println("------------------------------");
+        System.out.println("------------------------------");
+
         System.out.println("Player:");
         System.out.println("posX: " + playerPosX);
         System.out.println("posY: " + playerPosY);
@@ -60,7 +62,10 @@ public class XMLController {
         System.out.println("health: " + playerHealth);
         System.out.println("baseDmg: " + playerBaseDmg);
         System.out.println("------------------------------");
+        System.out.println("------------------------------");
 
+
+        // toolList
         Node toolBoxNode = doc.getElementsByTagName("toolList").item(0);
         NodeList toolBoxNodeList = toolBoxNode.getChildNodes();
         int n = toolBoxNodeList.getLength();
@@ -73,16 +78,49 @@ public class XMLController {
                 // playerNodeList wird durch (Element) in playerElement zu einem Element
                 Element toolBoxElement = (Element) toolBoxCurrent;
                 String toolName = toolBoxElement.getElementsByTagName("name").item(0).getTextContent();
+                int toolDurability = Integer.parseInt(toolBoxElement.getElementsByTagName("durability").item(0).getTextContent());
+                int toolDamage = Integer.parseInt(toolBoxElement.getElementsByTagName("damage").item(0).getTextContent());
 
 
                 //System.out.println(toolBoxCurrent.getNodeName() + ": " + toolBoxCurrent.getTextContent());
-                System.out.println(toolName);
+                System.out.println("toolName: " + toolName);
+                System.out.println("toolDurability: " + toolDurability);
+                System.out.println("toolDamage: " + toolDamage);
+                System.out.println("------------------------------");
 
             }
         }
 
+        System.out.println("------------------------------");
 
 
+        // eggList
+        Node eggListNode = doc.getElementsByTagName("eggList").item(0);
+        NodeList eggListNodeList = eggListNode.getChildNodes();
+        n = eggListNodeList.getLength();
+        Node eggListCurrent;
+        for (int i=0; i<n; i++) {
+            eggListCurrent = eggListNodeList.item(i);
+            // if is protection against whitespaces and linebreaks
+            // only if node is real xml, it is true
+            if(eggListCurrent.getNodeType() == Node.ELEMENT_NODE) {
+                // playerNodeList wird durch (Element) in playerElement zu einem Element
+                Element eggListElement = (Element) eggListCurrent;
+                String eggName = eggListElement.getElementsByTagName("name").item(0).getTextContent();
+                int eggDurability = Integer.parseInt(eggListElement.getElementsByTagName("durability").item(0).getTextContent());
+                int eggSpeed = Integer.parseInt(eggListElement.getElementsByTagName("speed").item(0).getTextContent());
+
+
+                //System.out.println(eggListCurrent.getNodeName() + ": " + eggListCurrent.getTextContent());
+                System.out.println("eggName: " + eggName);
+                System.out.println("eggDurability: " + eggDurability);
+                System.out.println("eggSpeed: " + eggSpeed);
+                System.out.println("------------------------------");
+
+            }
+        }
+
+        System.out.println("------------------------------");
 
 
     }
