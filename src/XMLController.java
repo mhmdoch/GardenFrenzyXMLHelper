@@ -30,24 +30,34 @@ public class XMLController {
         int mapWidth = Integer.parseInt(doc.getDocumentElement().getAttribute("mapWidth"));
         int mapHeight = Integer.parseInt(doc.getDocumentElement().getAttribute("mapHeight"));
 
-
         // int totalScore
         NodeList totalScoreNodeList = doc.getElementsByTagName("totalScore");
         Node totalScoreNode = totalScoreNodeList.item(0);
         int totalScore = Integer.valueOf(totalScoreNode.getTextContent());
+/*
+        // Player player
+        NodeList playerNodeList = doc.getElementsByTagName("player");
+
+        int playerPosX = Integer.parseInt(playerNodeList.getAttribute("posX"));
+        int playerPosY = Integer.parseInt(playerNodeList.getAttribute("posY"));
+
+/*
+    <player posX="16" posY="8">
+                <name>Udo</name>
+                <speed>30</speed>
+                <health>100</health>
+                <baseDmg>500</baseDmg>
+                </player>
+*/
+
+        System.out.println("mapWidth: " + mapWidth);
+        System.out.println("mapHeight: " + mapHeight);
+
+        System.out.println("totalScore: " + totalScore);
 
 
-
-        System.out.println(totalScore);
-
-
-        // unteres gibt folgendes aus :D
-        // com.sun.org.apache.xerces.internal.dom.DeepNodeListImpl@4b9af9a9
-        NodeList toolObjList = doc.getElementsByTagName("toolObj");
-        Node firstToolObjList = toolObjList.item(0);
-
-
-        System.out.println(firstToolObjList.getTextContent());
     }
+
+
 
 }
