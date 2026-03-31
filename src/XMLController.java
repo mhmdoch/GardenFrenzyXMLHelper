@@ -26,15 +26,9 @@ public class XMLController {
         doc.getDocumentElement().normalize();
 
 
-        // int mapWidth, int mapHeight
+        // int mapWidth, int mapHeight, int totalScore
         int mapWidth = Integer.parseInt(doc.getDocumentElement().getAttribute("mapWidth"));
         int mapHeight = Integer.parseInt(doc.getDocumentElement().getAttribute("mapHeight"));
-
-        // int totalScore
-        NodeList totalScoreNodeList = doc.getElementsByTagName("totalScore");
-        Node totalScoreNode = totalScoreNodeList.item(0);
-        //int totalScore = Integer.valueOf(totalScoreNode.getTextContent());
-
         int totalScore = Integer.parseInt(doc.getElementsByTagName("totalScore").item(0).getTextContent());
 
 
@@ -44,6 +38,7 @@ public class XMLController {
         Element playerElement = (Element) playerNodeList.item(0);
 
         // int playerPosX, int playerPosY, String playerName
+        // int playerSpeed, int playerHealth, int playerBaseDmg
         int playerPosX = Integer.parseInt(playerElement.getAttribute("posX"));
         int playerPosY = Integer.parseInt(playerElement.getAttribute("posY"));
         String playerName = playerElement.getElementsByTagName("name").item(0).getTextContent();
@@ -52,20 +47,32 @@ public class XMLController {
         int playerBaseDmg = Integer.parseInt(playerElement.getElementsByTagName("baseDmg").item(0).getTextContent());
 
 
-
-
+        System.out.println("------------------------------");
         System.out.println("mapWidth: " + mapWidth);
         System.out.println("mapHeight: " + mapHeight);
         System.out.println("totalScore: " + totalScore);
         System.out.println("------------------------------");
-
-        System.out.println("playerPosX: " + playerPosX);
-        System.out.println("playerPosY: " + playerPosY);
-        System.out.println("Name: " + playerName);
+        System.out.println("Player:");
+        System.out.println("posX: " + playerPosX);
+        System.out.println("posY: " + playerPosY);
+        System.out.println("name: " + playerName);
         System.out.println("speed: " + playerSpeed);
         System.out.println("health: " + playerHealth);
         System.out.println("baseDmg: " + playerBaseDmg);
         System.out.println("------------------------------");
+
+        Node fuck = doc.getElementsByTagName("toolBox").item(0);
+        NodeList fuckList = fuck.getChildNodes();
+        int n = fuckList.getLength();
+        Node current;
+        for (int i=0; i<n; i++) {
+            current = fuckList.item(i);
+            if(current.getNodeType() == Node.ELEMENT_NODE) {
+                System.out.println(
+                        current.getNodeName() + ": " + current.getTextContent());
+            }
+        }
+
 
 
 
