@@ -7,10 +7,11 @@ import java.io.File;
 public class Main {
     public static void main(String[] args) {
         XMLController controller = new XMLController();
-        File xmlFile = new File("src/savegame.xml");
+        File xmlFile = new File("res/save_games/load_game.xml");
 
         controller.readXML(xmlFile);
 
+        controller.saveXML("test_save");
 
     }
 }

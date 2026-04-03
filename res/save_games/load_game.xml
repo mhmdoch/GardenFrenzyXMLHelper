@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gameState mapWidth="1024" mapHeight="768">
+<totalScore>11856</totalScore>
+
+<player posX="16" posY="8">
+<name>Udo</name>
+<speed>30</speed>
+<health>100</health>
+<baseDmg>500</baseDmg>
+</player>
+
+<toolList>
+<toolObj>
+<name>Schaufel</name>
+<durability>60</durability>
+<damage>50</damage>
+</toolObj>
+<toolObj>
+<name>Sichel</name>
+<durability>30</durability>
+<damage>60</damage>
+</toolObj>
+<toolObj>
+<name>Giesskanne</name>
+<durability>10</durability>
+<damage>5</damage>
+</toolObj>
+</toolList>
+
+<plantList>
+<plantObj posX="64" posY="128">
+<name>Gänseblümchen</name>
+<health>80</health>
+</plantObj>
+<plantObj posX="72" posY="136">
+<name>Paprika</name>
+<health>220</health>
+</plantObj>
+</plantList>
+
+<eggList>
+<eggObj>
+<name>Sonnencreme</name>
+<durability>30</durability>
+<speed>40</speed>
+</eggObj>
+</eggList>
+</gameState>

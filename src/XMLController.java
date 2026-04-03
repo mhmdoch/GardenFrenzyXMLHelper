@@ -7,6 +7,8 @@ import org.w3c.dom.NodeList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 
 
 public class XMLController {
@@ -19,7 +21,7 @@ public class XMLController {
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             doc = builder.parse(file);
         } catch (Exception e) {
-
+            System.out.println("Fehler");
         }
 
         // normalize() removes whitespaces etc.
@@ -140,9 +142,21 @@ public class XMLController {
         }
 
         System.out.println("------------------------------");
+    }
+
+    public void saveXML(String filename) {
+
+
+        try {
+            PrintWriter writer = new PrintWriter("res/save_games/" + filename + ".xml");
+            writer.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+            writer.println("<test>test value</test>");
+            writer.close();
+
+        } catch (Exception e) {
+            System.out.println("klappte net");
+        }
 
 
     }
-
-
 }
